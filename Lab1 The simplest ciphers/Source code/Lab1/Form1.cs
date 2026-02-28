@@ -199,9 +199,12 @@ namespace Lab1
         // and converted back to a letter; characters outside A–Z/a–z are copied unchanged.
         private static string EncryptDecimation(string text, string keyString)
         {
-            if (!int.TryParse(keyString.Trim(), out var k))
+            // Extract all digits from the key; non-digit characters are ignored.
+            // E.g. "32ASd1фыв" -> "321" -> 321
+            var digitsOnly = new string(keyString.Where(char.IsDigit).ToArray());
+            if (string.IsNullOrEmpty(digitsOnly) || !int.TryParse(digitsOnly, out var k))
             {
-                throw new ArgumentException("Ключ для метода децимации должен быть целым числом.");
+                throw new ArgumentException("Ключ для метода децимации должен содержать хотя бы одну цифру.");
             }
 
             const int m = 26;
@@ -215,27 +218,21 @@ namespace Lab1
 
             foreach (var ch in text)
             {
-                if (char.IsLetter(ch) && ch is >= 'A' and <= 'Z' || ch is >= 'a' and <= 'z')
+                // Keep only English letters in the output; skip everything else.
+                if (!(ch is >= 'A' and <= 'Z') && !(ch is >= 'a' and <= 'z'))
                 {
-                    bool isUpper = char.IsUpper(ch);
-                    int idx = (isUpper ? EnglishAlphabetUpper.IndexOf(ch) : EnglishAlphabetLower.IndexOf(ch));
+                    continue;
+                }
 
-                    if (idx >= 0)
-                    {
-                        int newIdx = (k * idx) % m;
-                        char enc = isUpper ? EnglishAlphabetUpper[newIdx] : EnglishAlphabetLower[newIdx];
-                        sb.Append(enc);
-                    }
-                    else
-                    {
-                        sb.Append(ch);
-                    }
-                }
-                else
+                var upperCh = char.ToUpperInvariant(ch);
+                int idx = EnglishAlphabetUpper.IndexOf(upperCh);
+                if (idx < 0)
                 {
-                    // Ignore (do not encrypt) non-English letters – just copy as is.
-                    sb.Append(ch);
+                    continue;
                 }
+
+                int newIdx = (k * idx) % m;
+                sb.Append(EnglishAlphabetUpper[newIdx]);
             }
 
             return sb.ToString();
@@ -245,9 +242,11 @@ namespace Lab1
         // Uses the multiplicative inverse of 'k' modulo 26 to restore original indices.
         private static string DecryptDecimation(string text, string keyString)
         {
-            if (!int.TryParse(keyString.Trim(), out var k))
+            // Extract all digits from the key; non-digit characters are ignored.
+            var digitsOnly = new string(keyString.Where(char.IsDigit).ToArray());
+            if (string.IsNullOrEmpty(digitsOnly) || !int.TryParse(digitsOnly, out var k))
             {
-                throw new ArgumentException("Ключ для метода децимации должен быть целым числом.");
+                throw new ArgumentException("Ключ для метода децимации должен содержать хотя бы одну цифру.");
             }
 
             const int m = 26;
@@ -262,26 +261,21 @@ namespace Lab1
 
             foreach (var ch in text)
             {
-                if (char.IsLetter(ch) && ch is >= 'A' and <= 'Z' || ch is >= 'a' and <= 'z')
+                // Keep only English letters in the output; skip everything else.
+                if (!(ch is >= 'A' and <= 'Z') && !(ch is >= 'a' and <= 'z'))
                 {
-                    bool isUpper = char.IsUpper(ch);
-                    int idx = (isUpper ? EnglishAlphabetUpper.IndexOf(ch) : EnglishAlphabetLower.IndexOf(ch));
+                    continue;
+                }
 
-                    if (idx >= 0)
-                    {
-                        int newIdx = (inv * idx) % m;
-                        char dec = isUpper ? EnglishAlphabetUpper[newIdx] : EnglishAlphabetLower[newIdx];
-                        sb.Append(dec);
-                    }
-                    else
-                    {
-                        sb.Append(ch);
-                    }
-                }
-                else
+                var upperCh = char.ToUpperInvariant(ch);
+                int idx = EnglishAlphabetUpper.IndexOf(upperCh);
+                if (idx < 0)
                 {
-                    sb.Append(ch);
+                    continue;
                 }
+
+                int newIdx = (inv * idx) % m;
+                sb.Append(EnglishAlphabetUpper[newIdx]);
             }
 
             return sb.ToString();
@@ -300,26 +294,15 @@ namespace Lab1
 
             foreach (var ch in key)
             {
-                int idx;
-
-                if (RussianAlphabetUpper.Contains(ch))
-                {
-                    idx = RussianAlphabetUpper.IndexOf(ch);
-                }
-                else if (RussianAlphabetLower.Contains(ch))
-                {
-                    idx = RussianAlphabetLower.IndexOf(ch);
-                }
-                else
+                // Accept any case, but normalize to uppercase for indexing.
+                var upperCh = char.ToUpperInvariant(ch);
+                int idx = RussianAlphabetUpper.IndexOf(upperCh);
+                if (idx < 0)
                 {
                     // Ignore non-Russian symbols in key
                     continue;
                 }
-
-                if (idx >= 0)
-                {
-                    shifts.Add(idx);
-                }
+                shifts.Add(idx);
             }
 
             if (shifts.Count == 0)
@@ -341,31 +324,19 @@ namespace Lab1
 
             foreach (var ch in text)
             {
-                int idx;
-                bool isUpper;
-
-                if (RussianAlphabetUpper.Contains(ch))
+                // Keep only Russian letters in the output; skip everything else.
+                // Normalize to uppercase so output is always uppercase.
+                var upperCh = char.ToUpperInvariant(ch);
+                int idx = RussianAlphabetUpper.IndexOf(upperCh);
+                if (idx < 0)
                 {
-                    idx = RussianAlphabetUpper.IndexOf(ch);
-                    isUpper = true;
-                }
-                else if (RussianAlphabetLower.Contains(ch))
-                {
-                    idx = RussianAlphabetLower.IndexOf(ch);
-                    isUpper = false;
-                }
-                else
-                {
-                    // Not a Russian letter – leave unchanged.
-                    sb.Append(ch);
                     continue;
                 }
 
                 int shift = keyShifts[keyPos % keyShifts.Length];
                 int newIdx = (idx + shift) % RussianAlphabetUpper.Length;
 
-                char enc = isUpper ? RussianAlphabetUpper[newIdx] : RussianAlphabetLower[newIdx];
-                sb.Append(enc);
+                sb.Append(RussianAlphabetUpper[newIdx]);
 
                 keyPos++;
             }
@@ -383,22 +354,12 @@ namespace Lab1
 
             foreach (var ch in text)
             {
-                int idx;
-                bool isUpper;
-
-                if (RussianAlphabetUpper.Contains(ch))
+                // Keep only Russian letters in the output; skip everything else.
+                // Normalize to uppercase so output is always uppercase.
+                var upperCh = char.ToUpperInvariant(ch);
+                int idx = RussianAlphabetUpper.IndexOf(upperCh);
+                if (idx < 0)
                 {
-                    idx = RussianAlphabetUpper.IndexOf(ch);
-                    isUpper = true;
-                }
-                else if (RussianAlphabetLower.Contains(ch))
-                {
-                    idx = RussianAlphabetLower.IndexOf(ch);
-                    isUpper = false;
-                }
-                else
-                {
-                    sb.Append(ch);
                     continue;
                 }
 
@@ -409,8 +370,7 @@ namespace Lab1
                     newIdx += RussianAlphabetUpper.Length;
                 }
 
-                char dec = isUpper ? RussianAlphabetUpper[newIdx] : RussianAlphabetLower[newIdx];
-                sb.Append(dec);
+                sb.Append(RussianAlphabetUpper[newIdx]);
 
                 keyPos++;
             }
