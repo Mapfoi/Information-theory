@@ -85,8 +85,9 @@ All encryption and decryption logic is implemented in the **`Form1`** class.
   - Alphabet length \( m = 26 \).
 
 - **Key**
-  - Entered by the user as an **integer** in `textBox_Key`.
-  - Parsed inside `EncryptDecimation` / `DecryptDecimation`.
+  - Entered by the user in `textBox_Key` in **any format**.
+  - Only **digits** are extracted from the key string; all other characters (letters, symbols, etc.) are ignored.
+  - Example: `"32ASd1фыв"` → `"321"` → key **321**.
   - Must satisfy:
     - \( k > 0 \) and `Gcd(k, 26) == 1` — the key must be **coprime** with the alphabet length, otherwise a multiplicative inverse does not exist.
 
@@ -98,24 +99,23 @@ All encryption and decryption logic is implemented in the **`Form1`** class.
 - **Encryption: `EncryptDecimation(string text, string keyString)`**
   - For each character `ch`:
     - If `ch` is an English letter (`A–Z` or `a–z`):
-      - its case (`isUpper`) is determined.
-      - the index `idx` is found in `EnglishAlphabetUpper` or `EnglishAlphabetLower`.
+      - the character is converted to uppercase and its index `idx` is found in `EnglishAlphabetUpper`.
       - new index is computed:
         - \[ newIdx = (k * idx) mod 26 \]
-      - the encrypted character is taken from the corresponding alphabet at `newIdx`.
+      - an **uppercase** letter `EnglishAlphabetUpper[newIdx]` is appended to the result.
     - If `ch` is **not** an English letter:
-      - it is **copied unchanged** (characters from other alphabets, spaces, punctuation, etc.).
+      - it is **skipped** (not written to the result).
 
 - **Decryption: `DecryptDecimation(string text, string keyString)`**
-  - Parses and validates the key in the same way.
+  - Parses the key (digit extraction) and validates it.
   - Computes the **inverse key**:
     - `int inv = ModInverse(k, 26);`
   - For each English letter:
-    - `idx` is found in the alphabet.
+    - the character is converted to uppercase and its index `idx` is found in the alphabet.
     - new index is computed:
       - \[ newIdx = (inv * idx) mod 26 \]
-    - the original character (with correct case) is taken at `newIdx`.
-  - All non‑English characters are **left unchanged**.
+    - an **uppercase** letter `EnglishAlphabetUpper[newIdx]` is appended to the result.
+  - All non‑English characters are **skipped** (not written to the result).
 
 ## Vigenère cipher implementation (Russian text)
 
@@ -126,51 +126,50 @@ All encryption and decryption logic is implemented in the **`Form1`** class.
   - Alphabet length \( m = 33 \).
 
 - **Key preprocessing: `BuildRussianKeyShifts(string key)`**
-  - Ensures the key is not empty.
+  - The key can be entered in **any format**.
   - For each key character:
-    - If it is an uppercase Russian letter, its index in `RussianAlphabetUpper` is used.
-    - If it is a lowercase Russian letter, its index in `RussianAlphabetLower` is used.
-    - Any **non‑Russian** characters in the key are ignored.
+    - If it is a Russian letter (any case), its index in the alphabet is used (character is converted to uppercase).
+    - Any **non‑Russian** characters in the key are ignored (letters from other alphabets, digits, symbols).
   - A list of integer `shifts` is built, each representing a shift in the alphabet (0…32).
   - If the list is empty after filtering, an error is thrown: the key must contain at least one Russian letter.
 
 - **Encryption: `EncryptVigenereRussian(string text, string key)`**
   - Builds the array of shifts: `keyShifts = BuildRussianKeyShifts(key)`.
   - Iterates over characters of the source text:
-    - If the character is an uppercase Russian letter:
-      - `idx` in `RussianAlphabetUpper` is found, `isUpper = true`.
-    - If the character is a lowercase Russian letter:
-      - `idx` in `RussianAlphabetLower` is found, `isUpper = false`.
-    - If the character is **not** a Russian letter:
-      - it is **copied unchanged**.
-    - For Russian letters:
+    - If the character is a Russian letter (any case):
+      - it is converted to uppercase and its index `idx` is found in `RussianAlphabetUpper`.
       - current shift is `shift = keyShifts[keyPos % keyShifts.Length]`.
       - new index is calculated:
         - \[ newIdx = (idx + shift) mod 33 \]
-      - encrypted character is taken from `RussianAlphabetUpper` or `RussianAlphabetLower` depending on the case.
+      - an **uppercase** letter `RussianAlphabetUpper[newIdx]` is appended to the result.
       - `keyPos` is incremented (the key is repeated over Russian letters only).
+    - If the character is **not** a Russian letter:
+      - it is **skipped** (not written to the result).
 
 - **Decryption: `DecryptVigenereRussian(string text, string key)`**
   - Similar to encryption:
     - `keyShifts = BuildRussianKeyShifts(key)`.
     - For each Russian letter:
-      - `idx` in the alphabet is found.
+      - the character is converted to uppercase and its index `idx` is found in the alphabet.
       - new index is computed:
         - \[ newIdx = (idx - shift) mod 33 \]
       - if `newIdx` is negative, it is adjusted:
         - `if (newIdx < 0) newIdx += RussianAlphabetUpper.Length;`
-      - the original character is taken from the appropriate alphabet.
-    - All non‑Russian characters are **copied as is**.
+      - an **uppercase** letter `RussianAlphabetUpper[newIdx]` is appended to the result.
+    - All non‑Russian characters are **skipped** (not written to the result).
 
-## Ignoring characters outside the alphabet
+## Handling characters outside the alphabet and case
 
-The same principle is used in both algorithms:
+- **Input** (text and key) can be entered in **any case** and with any characters.
+- **Output** is always in **uppercase** (capital letters).
+
+For both algorithms:
 
 - **Decimation method**:
   - Only English letters `A–Z` and `a–z` are encrypted.
-  - All other characters (Cyrillic, digits, spaces, punctuation, etc.) are **copied to the output unchanged**.
+  - All other characters (Cyrillic, digits, spaces, punctuation, etc.) are **skipped** and **not written** to the result.
 
 - **Vigenère cipher**:
   - Only Russian letters (including `Ё`/`ё`) are encrypted.
-  - Any other characters (Latin letters, digits, spaces, punctuation) **remain unchanged**.
+  - Any other characters (Latin letters, digits, spaces, punctuation) are **skipped** and **not written** to the result.
 
