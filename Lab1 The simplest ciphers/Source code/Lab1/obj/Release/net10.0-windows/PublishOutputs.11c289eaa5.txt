@@ -1,0 +1,5 @@
+D:\Programs\Microsoft Visual Studio\Projects\Information-theory\Lab1 The simplest ciphers\Source code\Lab1\bin\Release\net10.0-windows\publish\Lab1.exe
+D:\Programs\Microsoft Visual Studio\Projects\Information-theory\Lab1 The simplest ciphers\Source code\Lab1\bin\Release\net10.0-windows\publish\Lab1.dll
+D:\Programs\Microsoft Visual Studio\Projects\Information-theory\Lab1 The simplest ciphers\Source code\Lab1\bin\Release\net10.0-windows\publish\Lab1.deps.json
+D:\Programs\Microsoft Visual Studio\Projects\Information-theory\Lab1 The simplest ciphers\Source code\Lab1\bin\Release\net10.0-windows\publish\Lab1.runtimeconfig.json
+D:\Programs\Microsoft Visual Studio\Projects\Information-theory\Lab1 The simplest ciphers\Source code\Lab1\bin\Release\net10.0-windows\publish\Lab1.pdb

@@ -1,0 +1,17 @@
+D:\Programs\Microsoft Visual Studio\Projects\Information-theory\Lab1 The simplest ciphers\Source code\Lab1\obj\Release\net10.0-windows\win-x64\Lab1.GeneratedMSBuildEditorConfig.editorconfig
+D:\Programs\Microsoft Visual Studio\Projects\Information-theory\Lab1 The simplest ciphers\Source code\Lab1\obj\Release\net10.0-windows\win-x64\Lab1.AssemblyInfoInputs.cache
+D:\Programs\Microsoft Visual Studio\Projects\Information-theory\Lab1 The simplest ciphers\Source code\Lab1\obj\Release\net10.0-windows\win-x64\Lab1.AssemblyInfo.cs
+D:\Programs\Microsoft Visual Studio\Projects\Information-theory\Lab1 The simplest ciphers\Source code\Lab1\obj\Release\net10.0-windows\win-x64\Lab1.csproj.CoreCompileInputs.cache
+D:\Programs\Microsoft Visual Studio\Projects\Information-theory\Lab1 The simplest ciphers\Source code\Lab1\obj\Release\net10.0-windows\win-x64\Lab1.sourcelink.json
+D:\Programs\Microsoft Visual Studio\Projects\Information-theory\Lab1 The simplest ciphers\Source code\Lab1\bin\Release\net10.0-windows\win-x64\Lab1.exe
+D:\Programs\Microsoft Visual Studio\Projects\Information-theory\Lab1 The simplest ciphers\Source code\Lab1\bin\Release\net10.0-windows\win-x64\Lab1.deps.json
+D:\Programs\Microsoft Visual Studio\Projects\Information-theory\Lab1 The simplest ciphers\Source code\Lab1\bin\Release\net10.0-windows\win-x64\Lab1.runtimeconfig.json
+D:\Programs\Microsoft Visual Studio\Projects\Information-theory\Lab1 The simplest ciphers\Source code\Lab1\bin\Release\net10.0-windows\win-x64\Lab1.dll
+D:\Programs\Microsoft Visual Studio\Projects\Information-theory\Lab1 The simplest ciphers\Source code\Lab1\bin\Release\net10.0-windows\win-x64\Lab1.pdb
+D:\Programs\Microsoft Visual Studio\Projects\Information-theory\Lab1 The simplest ciphers\Source code\Lab1\obj\Release\net10.0-windows\win-x64\Lab1.Form1.resources
+D:\Programs\Microsoft Visual Studio\Projects\Information-theory\Lab1 The simplest ciphers\Source code\Lab1\obj\Release\net10.0-windows\win-x64\Lab1.csproj.GenerateResource.cache
+D:\Programs\Microsoft Visual Studio\Projects\Information-theory\Lab1 The simplest ciphers\Source code\Lab1\obj\Release\net10.0-windows\win-x64\Lab1.dll
+D:\Programs\Microsoft Visual Studio\Projects\Information-theory\Lab1 The simplest ciphers\Source code\Lab1\obj\Release\net10.0-windows\win-x64\refint\Lab1.dll
+D:\Programs\Microsoft Visual Studio\Projects\Information-theory\Lab1 The simplest ciphers\Source code\Lab1\obj\Release\net10.0-windows\win-x64\Lab1.pdb
+D:\Programs\Microsoft Visual Studio\Projects\Information-theory\Lab1 The simplest ciphers\Source code\Lab1\obj\Release\net10.0-windows\win-x64\Lab1.genruntimeconfig.cache
+D:\Programs\Microsoft Visual Studio\Projects\Information-theory\Lab1 The simplest ciphers\Source code\Lab1\obj\Release\net10.0-windows\win-x64\ref\Lab1.dll
