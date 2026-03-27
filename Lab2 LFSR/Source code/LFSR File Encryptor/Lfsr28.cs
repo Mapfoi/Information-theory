@@ -39,12 +39,13 @@ internal sealed class Lfsr28
     public int NextBit()
     {
         var output = _state[0] ? 1 : 0;
-        var feedback = _state[25] ^ _state[27];
+        var feedback = _state[25] ^ _state[27]; //x^3 xor output
 
         // shift left: [0] <- [1] ... [26] <- [27], [27] <- feedback
         for (var i = 0; i < RegisterSize - 1; i++)
             _state[i] = _state[i + 1];
-        _state[RegisterSize - 1] = feedback;
+
+        _state[RegisterSize - 1] = feedback; //[27] = feedback
 
         return output;
     }

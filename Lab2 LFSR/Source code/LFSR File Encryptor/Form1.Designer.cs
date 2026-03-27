@@ -143,7 +143,7 @@ namespace LFSR_File_Encryptor
             tbSeed.Name = "tbSeed";
             tbSeed.Size = new Size(1074, 39);
             tbSeed.TabIndex = 1;
-            tbSeed.Text = "0101010101010101010101010101";
+            tbSeed.Text = "1111111111111111111111111111";
             // 
             // lblInputFile
             // 
