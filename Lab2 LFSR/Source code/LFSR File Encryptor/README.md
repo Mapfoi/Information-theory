@@ -86,7 +86,10 @@ The application shows:
 - **Input file bits**
 - **Output file bits**
 
-To avoid UI freezes on very large files, only the **first 4096 bytes** are shown in the text boxes (the file itself is processed fully).
+In the text boxes, binary output follows this rule (the file on disk is always processed fully):
+
+- If the file length is **at most 20 bytes**, the **entire** key / input / output is shown.
+- If the length is **greater than 20 bytes**, only the **first 10** and **last 10** bytes are shown, with an omission line in between.
 
 ### Usage
 

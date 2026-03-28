@@ -5,7 +5,10 @@ namespace LFSR_File_Encryptor;
 public partial class Form1 : Form
 {
     private const int SeedLength = 28;
-    private const int MaxDisplayBytes = 4096; // UI safety limit
+    /// <summary>First/last this many bytes in UI when file length exceeds FullDisplayMaxBytes.</summary>
+    private const int DisplayEdgeBytes = 10;
+    /// <summary>Show full binary text only when total length is at most this (bytes).</summary>
+    private const int FullDisplayMaxBytes = 20;
 
     private string? _inputPath;
     private string? _outputPath;
@@ -105,18 +108,26 @@ public partial class Form1 : Form
 
         var inputBytes = File.ReadAllBytes(_inputPath);
         var totalBytes = inputBytes.Length;
-        var shownBytes = Math.Min(totalBytes, MaxDisplayBytes);
 
         var lfsr = new Lfsr28(seed);
 
         SetStatus("Генерация ключа и XOR…");
 
         var outputBytes = new byte[totalBytes];
-        var shownKey = new byte[shownBytes];
+        byte[]? keyAll = totalBytes <= FullDisplayMaxBytes ? new byte[totalBytes] : null;
+        var keyFirst = new byte[Math.Min(DisplayEdgeBytes, totalBytes)];
+        var keyLast = new byte[totalBytes > FullDisplayMaxBytes ? DisplayEdgeBytes : 0];
+
         for (var i = 0; i < totalBytes; i++)
         {
             var keyByte = lfsr.NextByte();
-            if (i < shownBytes) shownKey[i] = keyByte;
+            if (keyAll != null) keyAll[i] = keyByte;
+            else
+            {
+                if (i < DisplayEdgeBytes) keyFirst[i] = keyByte;
+                if (i >= totalBytes - DisplayEdgeBytes) keyLast[i - (totalBytes - DisplayEdgeBytes)] = keyByte;
+            }
+
             outputBytes[i] = (byte)(inputBytes[i] ^ keyByte);
         }
 
@@ -124,37 +135,46 @@ public partial class Form1 : Form
 
         SetStatus("Формирование двоичного отображения…");
 
-        var shownInput = inputBytes.AsSpan(0, shownBytes);
-        var shownOutput = outputBytes.AsSpan(0, shownBytes);
-
         tbKeyBits.Text = BuildBitsBlock(
             title: "Ключ",
             totalBytes: totalBytes,
-            shownBytes: shownBytes,
-            bytes: shownKey);
+            keyAll: keyAll,
+            keyFirst: keyFirst,
+            keyLast: keyLast);
 
-        tbInputBits.Text = BuildBitsBlock(
+        tbInputBits.Text = BuildBitsBlockFromBuffer(
             title: "Вход",
             totalBytes: totalBytes,
-            shownBytes: shownBytes,
-            bytes: shownInput);
+            buffer: inputBytes);
 
-        tbOutputBits.Text = BuildBitsBlock(
+        tbOutputBits.Text = BuildBitsBlockFromBuffer(
             title: "Выход",
             totalBytes: totalBytes,
-            shownBytes: shownBytes,
-            bytes: shownOutput);
+            buffer: outputBytes);
 
         SetStatus($"Готово. Сохранено: {_outputPath}");
     }
 
-    private static string BuildBitsBlock(string title, int totalBytes, int shownBytes, ReadOnlySpan<byte> bytes)
+    private static string BuildBitsBlock(string title, int totalBytes, byte[]? keyAll, byte[] keyFirst, byte[] keyLast)
     {
         var sb = new StringBuilder();
-        sb.AppendLine($"{title}. {BitFormatting.BitsPreviewHeader(totalBytes, shownBytes)}");
+        sb.AppendLine($"{title}. {BitFormatting.BitsPreviewHeader(totalBytes, DisplayEdgeBytes, FullDisplayMaxBytes)}");
         sb.AppendLine();
-        sb.Append(BitFormatting.BytesToBitString(bytes, bytesPerLine: 8, byteSeparator: " "));
+        if (keyAll != null)
+            sb.Append(BitFormatting.BytesToBitString(keyAll.AsSpan(), bytesPerLine: 8, byteSeparator: " "));
+        else
+            sb.Append(BitFormatting.FormatKeyEdgesAsBits(keyFirst, keyLast, totalBytes, DisplayEdgeBytes));
         return sb.ToString();
     }
+
+    private static string BuildBitsBlockFromBuffer(string title, int totalBytes, byte[] buffer)
+    {
+        var sb = new StringBuilder();
+        sb.AppendLine($"{title}. {BitFormatting.BitsPreviewHeader(totalBytes, DisplayEdgeBytes, FullDisplayMaxBytes)}");
+        sb.AppendLine();
+        sb.Append(BitFormatting.BytesToBitStringEdges(buffer.AsSpan(), edgeBytes: DisplayEdgeBytes, fullIfAtMost: FullDisplayMaxBytes));
+        return sb.ToString();
+    }
+
 
 }

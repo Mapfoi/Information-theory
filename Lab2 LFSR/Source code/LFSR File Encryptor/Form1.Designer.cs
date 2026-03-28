@@ -275,7 +275,6 @@ namespace LFSR_File_Encryptor
             tbKeyBits.ScrollBars = ScrollBars.Both;
             tbKeyBits.Size = new Size(625, 566);
             tbKeyBits.TabIndex = 0;
-            tbKeyBits.WordWrap = false;
             // 
             // splitIo
             // 
@@ -315,7 +314,6 @@ namespace LFSR_File_Encryptor
             tbInputBits.Name = "tbInputBits";
             tbInputBits.ReadOnly = true;
             tbInputBits.ScrollBars = ScrollBars.Both;
-            tbInputBits.ShortcutsEnabled = false;
             tbInputBits.Size = new Size(1122, 244);
             tbInputBits.TabIndex = 0;
             // 
@@ -341,7 +339,6 @@ namespace LFSR_File_Encryptor
             tbOutputBits.ScrollBars = ScrollBars.Both;
             tbOutputBits.Size = new Size(1122, 266);
             tbOutputBits.TabIndex = 0;
-            tbOutputBits.WordWrap = false;
             // 
             // openFileDialog
             // 
