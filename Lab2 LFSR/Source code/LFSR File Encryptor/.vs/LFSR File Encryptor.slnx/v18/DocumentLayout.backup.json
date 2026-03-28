@@ -3,7 +3,7 @@
   "WorkspaceRootPath": "D:\\Programs\\Microsoft Visual Studio\\Projects\\Information-theory\\Lab2 LFSR\\Source code\\LFSR File Encryptor\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{BF7C4E4F-C15F-496A-CF91-C2A735A901D8}|LFSR File Encryptor.csproj|D:\\Programs\\Microsoft Visual Studio\\Projects\\Information-theory\\Lab2 LFSR\\Source code\\LFSR File Encryptor\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{BF7C4E4F-C15F-496A-CF91-C2A735A901D8}|LFSR File Encryptor.csproj|d:\\programs\\microsoft visual studio\\projects\\information-theory\\lab2 lfsr\\source code\\lfsr file encryptor\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{BF7C4E4F-C15F-496A-CF91-C2A735A901D8}|LFSR File Encryptor.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
@@ -53,14 +53,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Form1.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "Title": "Form1.cs [Design]",
               "DocumentMoniker": "D:\\Programs\\Microsoft Visual Studio\\Projects\\Information-theory\\Lab2 LFSR\\Source code\\LFSR File Encryptor\\Form1.cs",
               "RelativeDocumentMoniker": "Form1.cs",
-              "ToolTip": "D:\\Programs\\Microsoft Visual Studio\\Projects\\Information-theory\\Lab2 LFSR\\Source code\\LFSR File Encryptor\\Form1.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
-              "RelativeToolTip": "Form1.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "ToolTip": "D:\\Programs\\Microsoft Visual Studio\\Projects\\Information-theory\\Lab2 LFSR\\Source code\\LFSR File Encryptor\\Form1.cs [Design]",
+              "RelativeToolTip": "Form1.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-27T13:19:38.406Z",
-              "EditorCaption": " [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]"
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
@@ -72,8 +72,7 @@
               "RelativeToolTip": "Lfsr28.cs",
               "ViewState": "AgIAAB4AAAAAAAAAAAAowCgAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-27T12:08:34.857Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-27T12:08:34.857Z"
             },
             {
               "$type": "Document",
@@ -85,8 +84,7 @@
               "RelativeToolTip": "Form1.Designer.cs",
               "ViewState": "AgIAAC0BAAAAAAAAAAAuwD0BAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-27T11:26:25.981Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-27T11:26:25.981Z"
             },
             {
               "$type": "Document",
