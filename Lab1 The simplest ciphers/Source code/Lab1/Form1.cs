@@ -41,8 +41,8 @@ namespace Lab1
         {
             try
             {
-                var plaintext = textBox_Plaintext.Text;
                 var key = textBox_Key.Text;
+                var plaintext = textBox_Plaintext.Text;
 
                 if (string.IsNullOrWhiteSpace(plaintext))
                 {

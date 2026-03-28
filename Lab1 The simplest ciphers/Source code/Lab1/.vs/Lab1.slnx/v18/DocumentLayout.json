@@ -35,14 +35,22 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
+<<<<<<< HEAD
               "Title": "Form1.cs [Design]",
               "DocumentMoniker": "Q:\\Programs\\Visual Studio\\Projects\\Information-theory\\Lab1 The simplest ciphers\\Source code\\Lab1\\Form1.cs",
               "RelativeDocumentMoniker": "Form1.cs",
               "ToolTip": "Q:\\Programs\\Visual Studio\\Projects\\Information-theory\\Lab1 The simplest ciphers\\Source code\\Lab1\\Form1.cs [Design]",
               "RelativeToolTip": "Form1.cs [Design]",
+=======
+              "Title": "Form1.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "DocumentMoniker": "D:\\Programs\\Microsoft Visual Studio\\Projects\\Information-theory\\Lab1 The simplest ciphers\\Source code\\Lab1\\Form1.cs",
+              "RelativeDocumentMoniker": "Form1.cs",
+              "ToolTip": "D:\\Programs\\Microsoft Visual Studio\\Projects\\Information-theory\\Lab1 The simplest ciphers\\Source code\\Lab1\\Form1.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "RelativeToolTip": "Form1.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+>>>>>>> 930e12ac2452d2e594925372be411725714c2856
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-28T10:32:12.608Z",
-              "EditorCaption": " [Design]"
+              "EditorCaption": " [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]"
             },
             {
               "$type": "Document",
@@ -52,7 +60,11 @@
               "RelativeDocumentMoniker": "Form1.cs",
               "ToolTip": "Q:\\Programs\\Visual Studio\\Projects\\Information-theory\\Lab1 The simplest ciphers\\Source code\\Lab1\\Form1.cs",
               "RelativeToolTip": "Form1.cs",
+<<<<<<< HEAD
               "ViewState": "AgIAAH8BAAAAAAAAAAAAAHUBAAAAAAAAAAAAAA==",
+=======
+              "ViewState": "AgIAAHoBAAAAAAAAAAAuwAwBAAAAAAAAAAAAAA==",
+>>>>>>> 930e12ac2452d2e594925372be411725714c2856
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-27T18:47:54.601Z",
               "EditorCaption": ""
@@ -67,7 +79,8 @@
               "RelativeToolTip": "Form1.Designer.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-27T18:54:21.911Z"
+              "WhenOpened": "2026-02-27T18:54:21.911Z",
+              "EditorCaption": ""
             }
           ]
         }
