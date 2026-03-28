@@ -32,7 +32,7 @@ Because XOR is symmetric, the **same operation** is used for encryption and decr
 
 For \(x^{28} + x^3 + 1\) with the shift convention used in this project, feedback is:
 
-- `feedback = state[25] XOR state[27]`
+- `feedback = state[25] XOR state[0]`
   - `state[0]` is MSB (output)
   - `state[27]` is LSB
 
