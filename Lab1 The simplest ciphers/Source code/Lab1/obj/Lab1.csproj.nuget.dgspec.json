@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Programs\\Microsoft Visual Studio\\Projects\\Information-theory\\Lab1 The simplest ciphers\\Source code\\Lab1\\Lab1.csproj": {}
+    "Q:\\Programs\\Visual Studio\\Projects\\Information-theory\\Lab1 The simplest ciphers\\Source code\\Lab1\\Lab1.csproj": {}
   },
   "projects": {
-    "D:\\Programs\\Microsoft Visual Studio\\Projects\\Information-theory\\Lab1 The simplest ciphers\\Source code\\Lab1\\Lab1.csproj": {
+    "Q:\\Programs\\Visual Studio\\Projects\\Information-theory\\Lab1 The simplest ciphers\\Source code\\Lab1\\Lab1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Programs\\Microsoft Visual Studio\\Projects\\Information-theory\\Lab1 The simplest ciphers\\Source code\\Lab1\\Lab1.csproj",
+        "projectUniqueName": "Q:\\Programs\\Visual Studio\\Projects\\Information-theory\\Lab1 The simplest ciphers\\Source code\\Lab1\\Lab1.csproj",
         "projectName": "Lab1",
-        "projectPath": "D:\\Programs\\Microsoft Visual Studio\\Projects\\Information-theory\\Lab1 The simplest ciphers\\Source code\\Lab1\\Lab1.csproj",
+        "projectPath": "Q:\\Programs\\Visual Studio\\Projects\\Information-theory\\Lab1 The simplest ciphers\\Source code\\Lab1\\Lab1.csproj",
         "packagesPath": "C:\\Users\\sevae\\.nuget\\packages\\",
-        "outputPath": "D:\\Programs\\Microsoft Visual Studio\\Projects\\Information-theory\\Lab1 The simplest ciphers\\Source code\\Lab1\\obj\\",
+        "outputPath": "Q:\\Programs\\Visual Studio\\Projects\\Information-theory\\Lab1 The simplest ciphers\\Source code\\Lab1\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\sevae\\AppData\\Roaming\\NuGet\\NuGet.Config",
