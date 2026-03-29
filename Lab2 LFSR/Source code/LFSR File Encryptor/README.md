@@ -32,7 +32,7 @@ Because XOR is symmetric, the **same operation** is used for encryption and decr
 
 For \(x^{28} + x^3 + 1\) with the shift convention used in this project, feedback is:
 
-- `feedback = state[25] XOR state[27]`
+- `feedback = state[25] XOR state[0]`
   - `state[0]` is MSB (output)
   - `state[27]` is LSB
 
@@ -57,15 +57,19 @@ Key stream is consumed as bytes, generated from 8 successive output bits.
 LFSR generation (feedback + shift + output):
 
 ```csharp
-public int NextBit()
-{
-    var output = _state[0] ? 1 : 0;
-    var feedback = _state[25] ^ _state[27];
-    for (var i = 0; i < RegisterSize - 1; i++)
-        _state[i] = _state[i + 1];
-    _state[RegisterSize - 1] = feedback;
-    return output;
-}
+    public int NextBit()
+    {
+        var output = _state[0] ? 1 : 0;
+        var feedback = _state[25] ^ _state[0]; //x^3 xor output
+
+        // shift left: [0] <- [1] ... [26] <- [27], [27] <- feedback
+        for (var i = 0; i < RegisterSize - 1; i++)
+            _state[i] = _state[i + 1];
+
+        _state[RegisterSize - 1] = feedback; //[27] = feedback
+
+        return output;
+    }
 ```
 
 File processing (stream XOR):
