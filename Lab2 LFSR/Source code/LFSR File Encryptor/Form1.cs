@@ -58,13 +58,12 @@ public partial class Form1 : Form
         _inputPath = openFileDialog.FileName;
         tbInputFile.Text = _inputPath;
 
-        if (string.IsNullOrWhiteSpace(_outputPath))
-        {
-            var dir = Path.GetDirectoryName(_inputPath) ?? Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);
-            var name = Path.GetFileName(_inputPath);
-            _outputPath = Path.Combine(dir, $"{name}.xor");
-            tbOutputFile.Text = _outputPath;
-        }
+      
+        var dir = Path.GetDirectoryName(_inputPath) ?? Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);
+        var name = Path.GetFileName(_inputPath);
+        _outputPath = Path.Combine(dir, $"{name}.xor");
+        tbOutputFile.Text = _outputPath;
+        
 
         SetStatus("Выбран входной файл.");
     }
