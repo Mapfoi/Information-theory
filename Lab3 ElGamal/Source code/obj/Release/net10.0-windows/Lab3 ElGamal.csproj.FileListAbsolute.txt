@@ -1,0 +1,17 @@
+D:\Programs\Microsoft Visual Studio\Projects\Information-theory\Lab3 ElGamal\Source code\bin\Release\net10.0-windows\Lab3 ElGamal.exe
+D:\Programs\Microsoft Visual Studio\Projects\Information-theory\Lab3 ElGamal\Source code\bin\Release\net10.0-windows\Lab3 ElGamal.deps.json
+D:\Programs\Microsoft Visual Studio\Projects\Information-theory\Lab3 ElGamal\Source code\bin\Release\net10.0-windows\Lab3 ElGamal.runtimeconfig.json
+D:\Programs\Microsoft Visual Studio\Projects\Information-theory\Lab3 ElGamal\Source code\bin\Release\net10.0-windows\Lab3 ElGamal.dll
+D:\Programs\Microsoft Visual Studio\Projects\Information-theory\Lab3 ElGamal\Source code\bin\Release\net10.0-windows\Lab3 ElGamal.pdb
+D:\Programs\Microsoft Visual Studio\Projects\Information-theory\Lab3 ElGamal\Source code\obj\Release\net10.0-windows\Lab3_ElGamal.Form1.resources
+D:\Programs\Microsoft Visual Studio\Projects\Information-theory\Lab3 ElGamal\Source code\obj\Release\net10.0-windows\Lab3 ElGamal.csproj.GenerateResource.cache
+D:\Programs\Microsoft Visual Studio\Projects\Information-theory\Lab3 ElGamal\Source code\obj\Release\net10.0-windows\Lab3 ElGamal.GeneratedMSBuildEditorConfig.editorconfig
+D:\Programs\Microsoft Visual Studio\Projects\Information-theory\Lab3 ElGamal\Source code\obj\Release\net10.0-windows\Lab3 ElGamal.AssemblyInfoInputs.cache
+D:\Programs\Microsoft Visual Studio\Projects\Information-theory\Lab3 ElGamal\Source code\obj\Release\net10.0-windows\Lab3 ElGamal.AssemblyInfo.cs
+D:\Programs\Microsoft Visual Studio\Projects\Information-theory\Lab3 ElGamal\Source code\obj\Release\net10.0-windows\Lab3 ElGamal.csproj.CoreCompileInputs.cache
+D:\Programs\Microsoft Visual Studio\Projects\Information-theory\Lab3 ElGamal\Source code\obj\Release\net10.0-windows\Lab3 ElGamal.sourcelink.json
+D:\Programs\Microsoft Visual Studio\Projects\Information-theory\Lab3 ElGamal\Source code\obj\Release\net10.0-windows\Lab3 ElGamal.dll
+D:\Programs\Microsoft Visual Studio\Projects\Information-theory\Lab3 ElGamal\Source code\obj\Release\net10.0-windows\refint\Lab3 ElGamal.dll
+D:\Programs\Microsoft Visual Studio\Projects\Information-theory\Lab3 ElGamal\Source code\obj\Release\net10.0-windows\Lab3 ElGamal.pdb
+D:\Programs\Microsoft Visual Studio\Projects\Information-theory\Lab3 ElGamal\Source code\obj\Release\net10.0-windows\Lab3 ElGamal.genruntimeconfig.cache
+D:\Programs\Microsoft Visual Studio\Projects\Information-theory\Lab3 ElGamal\Source code\obj\Release\net10.0-windows\ref\Lab3 ElGamal.dll

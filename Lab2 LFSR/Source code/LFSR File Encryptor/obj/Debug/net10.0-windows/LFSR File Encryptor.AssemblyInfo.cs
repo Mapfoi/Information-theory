@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("LFSR File Encryptor")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bff5495f7b5bd3ef0b2ffbfcceb279f26e327f02")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c42fda03af2615af4f4f1e075ec44611410bf031")]
 [assembly: System.Reflection.AssemblyProductAttribute("LFSR File Encryptor")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LFSR File Encryptor")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
